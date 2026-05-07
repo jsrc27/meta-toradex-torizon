@@ -21,7 +21,7 @@ deploy_uboot_with_spl () {
                 j=$(expr $j + 1);
                 if [ $j -eq $i ]
                 then
-                    install -D -m 644 ${B}/${config}/u-boot-with-spl.imx ${DEPLOYDIR}/u-boot-with-spl.imx-${MACHINE}-${type}
+                    install -D -m 644 ${B}/${config}-${type}/u-boot-with-spl.imx ${DEPLOYDIR}/u-boot-with-spl.imx-${MACHINE}-${type}
                     ln -sf u-boot-with-spl.imx-${MACHINE}-${type} ${DEPLOYDIR}/u-boot-with-spl.imx
                 fi
             done

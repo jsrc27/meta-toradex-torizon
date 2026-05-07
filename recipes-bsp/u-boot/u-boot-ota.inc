@@ -47,8 +47,8 @@ do_compile:append () {
             for type in ${UBOOT_CONFIG}; do
                 j=$(expr $j + 1);
                 if [ $j -eq $i ]; then
-                    generate_version_file "${B}/${config}" "u-boot-version.json-${type}"
-                    generate_environ_file "${B}/${config}" "u-boot-initial-env.raw-${type}"
+                    generate_version_file "${B}/${config}-${type}" "u-boot-version.json-${type}"
+                    generate_environ_file "${B}/${config}-${type}" "u-boot-initial-env.raw-${type}"
                 fi
             done
         done
@@ -89,10 +89,10 @@ do_deploy:append () {
                 j=$(expr $j + 1);
                 if [ $j -eq $i ]; then
                     deploy_version_file \
-                        "${B}/${config}" "u-boot-version.json-${type}" \
+                        "${B}/${config}-${type}" "u-boot-version.json-${type}" \
                         "${DEPLOYDIR}" "u-boot-version.json-${MACHINE}-${type}-${PV}-${PR}"
                     deploy_environ_file \
-                        "${B}/${config}" "u-boot-initial-env.raw-${type}" \
+                        "${B}/${config}-${type}" "u-boot-initial-env.raw-${type}" \
                         "${DEPLOYDIR}" "u-boot-initial-env.raw-${MACHINE}-${type}-${PV}-${PR}"
                 fi
             done
