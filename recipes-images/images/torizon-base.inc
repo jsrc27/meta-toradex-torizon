@@ -116,9 +116,10 @@ CORE_IMAGE_BASE_INSTALL:append:aquila-am69 = " \
     ti-img-rogue-driver \
 "
 
-CORE_IMAGE_BASE_INSTALL:append:mx8mp-nxp-bsp = " \
-    kernel-module-isp-vvcam \
-"
+# This does not compile succesfully on master
+#CORE_IMAGE_BASE_INSTALL:append:mx8mp-nxp-bsp = " \
+#    kernel-module-isp-vvcam \
+#"
 
 CORE_IMAGE_BASE_INSTALL:append:mx95-nxp-bsp = " \
     ${@bb.utils.contains("DISTROOVERRIDES", "common-torizon-distro", "mali-imx", "",d)} \
